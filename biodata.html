@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portofolio | Rallef Qorsya Salwa Rambing</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #0f172a;
+      color: #e5e7eb;
+      line-height: 1.6;
+    }
+
+    /* ===== NAVBAR ===== */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(15,23,42,0.85);
+      backdrop-filter: blur(10px);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    nav h2 {
+      color: #38bdf8;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #e5e7eb;
+      font-weight: 500;
+      transition: color .3s;
+    }
+
+    nav ul li a:hover {
+      color: #38bdf8;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #e5e7eb;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(120deg, #1e293b, #020617);
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      font-weight: 700;
+    }
+
+    header span {
+      color: #38bdf8;
+    }
+
+    header p {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      color: #cbd5f5;
+    }
+
+    /* ===== SECTION ===== */
+    section {
+      padding: 6rem 10%;
+    }
+
+    .about,
+    .business {
+      background: #020617;
+      animation: slideUp 1.2s ease;
+    }
+
+    /* ===== HEADING SECTION (DIBUAT KELIATAN) ===== */
+    section h2 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      position: relative;
+      color: #38bdf8;
+      text-shadow: 0 0 12px rgba(56,189,248,0.35);
+    }
+
+    section h2::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -12px;
+      width: 90px;
+      height: 5px;
+      background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+      border-radius: 4px;
+    }
+
+    /* ===== CARD ===== */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+
+    .card {
+      background: #020617;
+      border: 1px solid #1e293b;
+      border-radius: 16px;
+      padding: 2rem;
+      transition: transform .4s, box-shadow .4s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(56,189,248,0.15);
+    }
+
+    .card h3 {
+      margin-bottom: .5rem;
+      color: #e5e7eb;
+    }
+
+    .card p {
+      color: #94a3b8;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #020617;
+      color: #64748b;
+    }
+
+    /* ===== ANIMATION ===== */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+
+      nav ul {
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        background: #020617;
+        flex-direction: column;
+        padding: 1rem;
+        border-radius: 12px;
+        display: none;
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <h2 onclick="window.scrollTo({top:0,behavior:'smooth'})">Qosama Company</h2>
+    <div class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('active')">☰</div>
+    <ul>
+      <li><a href="#about">Tentang</a></li>
+      <li><a href="#business">Usaha</a></li>
+      <li><a href="#contact">Kontak</a></li>
+    </ul>
+  </nav>
+
+  <!-- HEADER -->
+  <header>
+    <div>
+      <h1>Rallef <span>Qorsya</span> Salwa Rambing</h1>
+      <p>Mahasiswa Informatika | Entrepreneur Ritel & Jasa Kebersihan</p>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about" class="about">
+    <h2>Tentang Saya</h2>
+    <p>
+      Saya Rallef Qorsya Salwa Rambing, mahasiswa jurusan Informatika yang memiliki minat
+      pada teknologi, sistem informasi, dan pengembangan usaha. Saya juga aktif
+      membangun bisnis ritel dan jasa kebersihan dengan pendekatan profesional dan
+      berbasis teknologi.
+    </p>
+  </section>
+
+  <!-- BUSINESS -->
+  <section id="business" class="business">
+    <h2>Usaha & Bisnis</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Qosama Clean</h3>
+        <p>
+          Usaha jasa kebersihan meliputi cuci sepatu, tas, helm, serta laundry pakaian
+          dengan standar kebersihan tinggi.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Usaha Ritel / Toko Sembako</h3>
+        <p>
+          Menyediakan kebutuhan pokok harian masyarakat dengan konsep ritel rapi,
+          terjangkau, dan berkelanjutan.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Era Bakery</h3>
+        <p>
+          Bisnis bakery yang fokus pada produk roti dan kue berkualitas dengan cita rasa
+          modern dan tampilan profesional.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="about">
+    <h2>Kontak</h2>
+    <p style="display:flex; gap:1.5rem; flex-wrap:wrap;">
+      <a href="mailto:rllfqrsy@gmail.com" style="color:#e5e7eb; text-decoration:none;">
+        EMAIL : rllfqrsy@gmail.com
+      </a>
+      <a href="https://www.instagram.com/rallefqrsy_sr/" target="_blank" style="color:#e5e7eb; text-decoration:none;">
+        IG : @rallefqrsy_sr
+      </a>
+    </p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Rallef Qorsya Salwa Rambing. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
