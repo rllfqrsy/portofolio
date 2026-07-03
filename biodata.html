@@ -6,9 +6,10 @@
   <title>Portofolio | Rallef Qorsya Salwa Rambing</title>
 
   <!-- Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
+    /* ===== RESET & GLOBAL STYLES ===== */
     * {
       margin: 0;
       padding: 0;
@@ -16,10 +17,15 @@
       font-family: 'Poppins', sans-serif;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      background: #0f172a;
-      color: #e5e7eb;
-      line-height: 1.6;
+      background: #090d16;
+      color: #f1f5f9;
+      line-height: 1.7;
+      overflow-x: hidden;
     }
 
     /* ===== NAVBAR ===== */
@@ -27,17 +33,22 @@
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(15,23,42,0.85);
-      backdrop-filter: blur(10px);
-      padding: 1rem 2rem;
+      background: rgba(9, 13, 22, 0.7);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding: 1.2rem 10%;
       display: flex;
       justify-content: space-between;
       align-items: center;
       z-index: 1000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
 
     nav h2 {
-      color: #38bdf8;
+      font-size: 1.4rem;
+      background: linear-gradient(135deg, #38bdf8, #818cf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       font-weight: 700;
       cursor: pointer;
     }
@@ -45,18 +56,20 @@
     nav ul {
       list-style: none;
       display: flex;
-      gap: 1.5rem;
+      gap: 2rem;
     }
 
     nav ul li a {
       text-decoration: none;
-      color: #e5e7eb;
+      color: #94a3b8;
       font-weight: 500;
-      transition: color .3s;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
     }
 
     nav ul li a:hover {
       color: #38bdf8;
+      text-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
     }
 
     .menu-toggle {
@@ -66,134 +79,208 @@
       color: #e5e7eb;
     }
 
-    /* ===== HEADER ===== */
+    /* ===== HERO HEADER ===== */
     header {
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      background: linear-gradient(120deg, #1e293b, #020617);
-      animation: fadeIn 1.5s ease-in-out;
+      position: relative;
+      background: radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.1) 0%, rgba(9, 13, 22, 1) 70%);
+      padding: 0 1.5rem;
+    }
+
+    /* Aksen Cahaya Estetik di Background */
+    header::before {
+      content: '';
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: #818cf8;
+      filter: blur(150px);
+      top: 20%;
+      left: 15%;
+      opacity: 0.15;
+      z-index: 0;
+    }
+
+    .header-content {
+      position: relative;
+      z-index: 1;
+      animation: fadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     header h1 {
-      font-size: 3rem;
+      font-size: 3.5rem;
       font-weight: 700;
+      letter-spacing: -1px;
+      line-height: 1.2;
+      color: #ffffff;
     }
 
     header span {
-      color: #38bdf8;
+      background: linear-gradient(135deg, #38bdf8, #818cf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     header p {
-      margin-top: 1rem;
-      font-size: 1.2rem;
-      color: #cbd5f5;
+      margin-top: 1.5rem;
+      font-size: 1.15rem;
+      color: #94a3b8;
+      font-weight: 300;
+      letter-spacing: 0.5px;
     }
 
-    /* ===== SECTION ===== */
+    /* ===== SECTION STYLES ===== */
     section {
-      padding: 6rem 10%;
-    }
-
-    .about,
-    .business {
-      background: #020617;
-      animation: slideUp 1.2s ease;
-    }
-
-    /* ===== HEADING SECTION (DIBUAT KELIATAN) ===== */
-    section h2 {
-      font-size: 2.8rem;
-      font-weight: 700;
-      margin-bottom: 2rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
+      padding: 8rem 10%;
       position: relative;
-      color: #38bdf8;
-      text-shadow: 0 0 12px rgba(56,189,248,0.35);
     }
 
-    section h2::after {
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 3rem;
+      color: #ffffff;
+      position: relative;
+    }
+
+    .section-title::after {
       content: '';
-      position: absolute;
-      left: 0;
-      bottom: -12px;
-      width: 90px;
-      height: 5px;
-      background: linear-gradient(90deg, #38bdf8, #0ea5e9);
-      border-radius: 4px;
+      display: block;
+      width: 50px;
+      height: 4px;
+      background: linear-gradient(90deg, #38bdf8, #818cf8);
+      border-radius: 2px;
+      margin-top: 0.75rem;
     }
 
-    /* ===== CARD ===== */
+    /* ABOUT */
+    .about-text {
+      font-size: 1.1rem;
+      color: #cbd5e1;
+      max-width: 800px;
+      line-height: 1.8;
+    }
+
+    /* BUSINESS CARDS (GLASSMORPHISM) */
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2rem;
-      margin-top: 2.5rem;
     }
 
     .card {
-      background: #020617;
-      border: 1px solid #1e293b;
-      border-radius: 16px;
-      padding: 2rem;
-      transition: transform .4s, box-shadow .4s;
+      background: rgba(30, 41, 59, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 20px;
+      padding: 2.5rem;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 40px rgba(56,189,248,0.15);
+      transform: translateY(-8px);
+      background: rgba(30, 41, 59, 0.5);
+      border-color: rgba(56, 189, 248, 0.3);
+      box-shadow: 0 20px 40px rgba(56, 189, 248, 0.05);
     }
 
     .card h3 {
-      margin-bottom: .5rem;
-      color: #e5e7eb;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: #ffffff;
+      font-weight: 600;
     }
 
     .card p {
       color: #94a3b8;
+      font-size: 0.95rem;
+    }
+
+    /* CONTACT BUTTONS */
+    .contact-container {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-contact {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.8rem 1.8rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+    }
+
+    .btn-contact.mail:hover {
+      background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+      box-shadow: 0 10px 20px rgba(56, 189, 248, 0.2);
+      border-color: transparent;
+    }
+
+    .btn-contact.ig:hover {
+      background: linear-gradient(135deg, #f43f5e, #ec4899);
+      box-shadow: 0 10px 20px rgba(244, 63, 94, 0.2);
+      border-color: transparent;
     }
 
     /* ===== FOOTER ===== */
     footer {
       text-align: center;
-      padding: 2rem;
-      background: #020617;
+      padding: 3rem 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
       color: #64748b;
+      font-size: 0.9rem;
     }
 
-    /* ===== ANIMATION ===== */
+    /* ===== ANIMATIONS ===== */
     @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
-    @keyframes slideUp {
-      from { opacity: 0; transform: translateY(40px); }
+      from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
       header h1 {
-        font-size: 2.2rem;
+        font-size: 2.5rem;
+      }
+
+      section {
+        padding: 5rem 6%;
+      }
+
+      nav {
+        padding: 1.2rem 6%;
       }
 
       nav ul {
         position: absolute;
-        top: 70px;
-        right: 20px;
-        background: #020617;
+        top: 75px;
+        right: 6%;
+        background: rgba(15, 23, 42, 0.95);
+        backdrop-filter: blur(10px);
         flex-direction: column;
-        padding: 1rem;
-        border-radius: 12px;
+        padding: 2rem;
+        border-radius: 16px;
+        width: 200px;
+        gap: 1.5rem;
+        border: 1px solid rgba(255, 255, 255, 0.05);
         display: none;
       }
 
       nav ul.active {
         display: flex;
+        animation: fadeIn 0.3s ease;
       }
 
       .menu-toggle {
@@ -218,69 +305,63 @@
 
   <!-- HEADER -->
   <header>
-    <div>
+    <div class="header-content">
       <h1>Rallef <span>Qorsya</span> Salwa Rambing</h1>
-      <p>Mahasiswa Informatika | Entrepreneur Ritel & Jasa Kebersihan</p>
+      <p>Mahasiswa Informatika &bull; Entrepreneur Ritel & Jasa Kebersihan</p>
     </div>
   </header>
 
   <!-- ABOUT -->
-  <section id="about" class="about">
-    <h2>Tentang Saya</h2>
-    <p>
-      Saya Rallef Qorsya Salwa Rambing, mahasiswa jurusan Informatika yang memiliki minat
-      pada teknologi, sistem informasi, dan pengembangan usaha. Saya juga aktif
-      membangun bisnis ritel dan jasa kebersihan dengan pendekatan profesional dan
-      berbasis teknologi.
+  <section id="about">
+    <h2 class="section-title">Tentang Saya</h2>
+    <p class="about-text">
+      Saya Rallef Qorsya Salwa Rambing, mahasiswa jurusan Informatika yang memiliki minat mendalam pada integrasi teknologi, sistem informasi, dan pengembangan bisnis. Melalui pendekatan profesional berbasis digital, saya aktif membangun unit usaha di sektor ritel dan jasa kebersihan guna menghadirkan solusi yang efisien serta berkelanjutan.
     </p>
   </section>
 
   <!-- BUSINESS -->
-  <section id="business" class="business">
-    <h2>Usaha & Bisnis</h2>
+  <section id="business" style="background: rgba(255,255,255,0.01);">
+    <h2 class="section-title">Usaha & Bisnis</h2>
     <div class="cards">
       <div class="card">
         <h3>Qosama Clean</h3>
         <p>
-          Usaha jasa kebersihan meliputi cuci sepatu, tas, helm, serta laundry pakaian
-          dengan standar kebersihan tinggi.
+          Layanan jasa kebersihan premium untuk sepatu, tas, helm, dan laundry pakaian dengan standarisasi higienis tinggi dan teknik perawatan khusus.
         </p>
       </div>
 
       <div class="card">
-        <h3>Usaha Ritel / Toko Sembako</h3>
+        <h3>Usaha Ritel Sembako</h3>
         <p>
-          Menyediakan kebutuhan pokok harian masyarakat dengan konsep ritel rapi,
-          terjangkau, dan berkelanjutan.
+          Penyedia kebutuhan pokok harian masyarakat yang dikelola dengan manajemen inventaris modern, rapi, terjangkau, dan mengutamakan kenyamanan konsumen.
         </p>
       </div>
 
       <div class="card">
         <h3>Era Bakery</h3>
         <p>
-          Bisnis bakery yang fokus pada produk roti dan kue berkualitas dengan cita rasa
-          modern dan tampilan profesional.
+          Industri kreatif kuliner yang memproduksi varian roti dan kue berkualitas tinggi, memadukan cita rasa klasik dengan presentasi modern yang premium.
         </p>
       </div>
     </div>
   </section>
 
   <!-- CONTACT -->
-  <section id="contact" class="about">
-    <h2>Kontak</h2>
-    <p style="display:flex; gap:1.5rem; flex-wrap:wrap;">
-      <a href="mailto:rllfqrsy@gmail.com" style="color:#e5e7eb; text-decoration:none;">
-        EMAIL : rllfqrsy@gmail.com
+  <section id="contact">
+    <h2 class="section-title">Mari Terhubung</h2>
+    <div class="contact-container">
+      <a href="mailto:rllfqrsy@gmail.com" class="btn-contact mail">
+        Email: rllfqrsy@gmail.com
       </a>
-      <a href="https://www.instagram.com/rallefqrsy_sr/" target="_blank" style="color:#e5e7eb; text-decoration:none;">
-        IG : @rallefqrsy_sr
+      <a href="https://www.instagram.com/rallefqrsy_sr/" target="_blank" class="btn-contact ig">
+        Instagram: @rallefqrsy_sr
       </a>
-    </p>
+    </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <p>© 2025 Rallef Qorsya Salwa Rambing. All Rights Reserved.</p>
+    <p>© 2026 Rallef Qorsya Salwa Rambing. All Rights Reserved.</p>
   </footer>
 
 </body>
